@@ -109,9 +109,21 @@
                     },
                     "additionalProperties": false,
                     "uniqueItems": true,
-                    "required": [
-                        "requires"
-                    ]
+                    "if": {
+                        "properties": {
+                            "plugin-use": {
+                                "const": "none"
+                            }
+                        },
+                        "required": [
+                            "plugin-use"
+                        ]
+                    },
+                    "else": {
+                        "required": [
+                            "requires"
+                        ]
+                    }
                 }
             },
             "additionalProperties": false,
