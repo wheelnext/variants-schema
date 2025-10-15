@@ -128,6 +128,32 @@
             "additionalProperties": false,
             "uniqueItems": true
         },
+        "static-properties": {
+            "description": "Static properties for AoT providers (by namespace)",
+            "type": "object",
+            "patternProperties": {
+                "^[a-z0-9_]+$": {
+                    "description": "Feature name",
+                    "type": "object",
+                    "patternProperties": {
+                        "^[a-z0-9_]+$": {
+                            "description": "Ordered value list",
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9_.]+$"
+                            },
+                            "minItems": 0,
+                            "uniqueItems": true
+                        }
+                    },
+                    "additionalProperties": false,
+                    "uniqueItems": true
+                }
+            },
+            "additionalProperties": false,
+            "uniqueItems": true
+        },
         "variants": {
             "description": "Mapping of variant labels to properties",
             "type": "object",
